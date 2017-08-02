@@ -23,4 +23,15 @@ def popular_articles():
     return output_string
 
 
+# Returns author names and views, sorted by the latter
+def popular_authors():
+    query = ("select * from popular_authors")
+    result = news_query_results(query)
+    output_string = ""
+    for i in result:
+        output_string += '{} -- {} views\n'.format(i[0], i[1])
+    return output_string
+
+
 print(popular_articles())
+print(popular_authors())
