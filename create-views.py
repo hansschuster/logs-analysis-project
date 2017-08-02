@@ -8,10 +8,12 @@ cursor = c.cursor()
 
 # Create view to show popular articles
 cursor.execute(
-    "create view popular_articles as select articles.title, "
-    "count(log.id) as views from articles left join log on log.path "
-    "like ('%' || articles.slug) group by articles.title order by "
-    "views desc;")
+    "create view popular_articles as "
+    "select articles.title, count(log.id) as views "
+    "from articles left join log "
+    "on log.path like ('%' || articles.slug) "
+    "group by articles.title "
+    "order by views desc;")
 
 # Create view to show popular authors
 cursor.execute(
