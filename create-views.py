@@ -25,5 +25,16 @@ cursor.execute(
     "group by authors.id "
     "order by views desc;")
 
+# Create view to show days with percentage of errors over 1%
+cursor.execute(
+    "create view errors_day as "
+    "select to_char(time, 'Month DD, YYYY') as day, "
+    "(count(case status when '404 NOT FOUND' then 1 else null "
+    "end)::real/ count(status)*100)::real as err_perc "
+    "from log "
+    "group by day "
+    "having (count(case status when '404 NOT FOUND' then 1 else null "
+    "end)::real/ count(status)*100)::real > 1;")
+
 c.commit()
 c.close()
