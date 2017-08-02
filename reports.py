@@ -15,10 +15,7 @@ def news_query_results(query):
 
 # Returns articles and corresponding views, sorted by the latter
 def popular_articles():
-    query = (
-        "select articles.title, count(log.id) as views from articles "
-        "left join log on log.path like ('%' || articles.slug) group "
-        "by articles.title order by views desc;")
+    query = ("select * from popular_articles")
     result = news_query_results(query)
     output_string = ""
     for i in result:
