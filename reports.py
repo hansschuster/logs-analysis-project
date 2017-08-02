@@ -44,10 +44,15 @@ def errors():
     return output_string
 
 
-### Either print or write to file. Uncomment accordingly
-#print(popular_articles())
-#print(popular_authors())
-#print(errors())
+output = popular_articles() + "\n" + popular_authors() + "\n" + errors()
 
-#with open("output.txt", "w") as f:
-#    f.write(popular_articles() + "\n" + popular_authors() + "\n" + errors())
+
+# Print output
+def output_print():
+    print(output)
+
+
+# Write output to file output.txt
+def output_write():
+    with open("output.txt", "w") as f:
+        f.write(output)
