@@ -17,7 +17,7 @@ def connect(db_name):
 
 # Takes query as input and returns fetchall results
 def news_query_results(query):
-    c, cursor = connect("newsa")
+    c, cursor = connect("news")
     cursor.execute(query)
     result = cursor.fetchall()
     c.close()
