@@ -53,6 +53,6 @@ def output_print():
 
 
 # Write output to file output.txt
-def output_write():
-    with open("output.txt", "w") as f:
+def output_write(file):
+    with open(file, "w") as f:
         f.write(output)
