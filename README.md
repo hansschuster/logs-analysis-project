@@ -9,8 +9,8 @@ is not part of this repo.
 1. Have the *news* database set up
 2. Run `create-views.py` once to create views in database
 3. `Import reports` and run either:
-  * `reports.output_print()` to print reports
-  * `reports.output_write(file)` to write reports to *file* in plain text
+    * `reports.output_print()` to print reports
+    * `reports.output_write(file)` to write reports to *file* in plain text
 
 ## Documentation
 
