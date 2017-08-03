@@ -1,12 +1,23 @@
 #!/usr/bin/env python3
 
 import psycopg2
+import sys
+
+
+def connect(db_name):
+    """Connect to the PostgreSQL database.  Returns a database connection."""
+    try:
+        c = psycopg2.connect("dbname={}".format(db_name))
+        cursor = c.cursor()
+        return c, cursor
+    except psycopg2.Error as e:
+        print("Unable to connect to database")
+        sys.exit(1)
 
 
 # Takes query as input and returns fetchall results
 def news_query_results(query):
-    c = psycopg2.connect("dbname=news")
-    cursor = c.cursor()
+    c, cursor = connect("newsa")
     cursor.execute(query)
     result = cursor.fetchall()
     c.close()
